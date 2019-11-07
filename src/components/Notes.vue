@@ -26,7 +26,7 @@ export default {
                 title: '',
                 text: ''
             },
-            notes:[],
+            notes: [],
         }
     },
     methods:{
@@ -44,7 +44,19 @@ export default {
         },
         removeNote(index){
             this.notes.splice(index, 1)
+        },
+    },
+    watch:{
+        notes: {
+            handler(){
+                localStorage.setItem('notes', JSON.stringify(this.notes));
+            },
+            deep: true,
         }
+    },
+    mounted() {
+        if(localStorage.getItem('notes'))
+        this.notes = JSON.parse(localStorage.getItem('notes'));
     }
 }
 </script>
