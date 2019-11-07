@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+  body{
+    padding: 0.5rem;
+    word-wrap: break-word
+  }
 </style>
